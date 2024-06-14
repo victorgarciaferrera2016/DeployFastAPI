@@ -55,7 +55,7 @@ def make_prediction(data, transformer, model):
     # make prediction
     label = model.predict(transformed_data) # make a prediction
     probs = model.predict_proba(transformed_data) # predit sepsis status for inputs
-    return label, probs.max()
+    return label, np.max(probs, axis=1) #  version probs.max(), just return one valor for all rows
 
 
 
